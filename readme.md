@@ -13,6 +13,11 @@ Clônez le dépôt avec la commande suivante :
 ```bach
 git clone https://github.com/zellio22/psutil_mqtt
 ```
+
+```bash 
+cd ./psutil_mqtt/
+
+```
 ## Instalation des dependances
 
 Installez les dépendances requises avec les commande suivante :
