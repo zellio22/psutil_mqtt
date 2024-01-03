@@ -9,9 +9,10 @@ le scripte suivant permet de publier sur votre Brocker MQTT les information suiv
 
 # Instalation 
 Clone du repo 
-'''bach
+
+```bach
 git clone
-'''
+```
 
 '''bash 
     pip install -r requirement.txt
