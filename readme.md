@@ -1,5 +1,5 @@
 # Sys_info
-le scripte suivant permet de publier sur votre Brocker MQTT les information suivante 
+Le script suivant permet de publier sur votre broker MQTT les informations suivantes :
     "cpu_freq_current": 
     "cpu_freq_min": 
     "cpu_freq_max": 
@@ -7,17 +7,19 @@ le scripte suivant permet de publier sur votre Brocker MQTT les information suiv
     "cpu_temp": 
     "ram_utilization": 
 
-# Instalation 
-Clone du repo 
+## Instalation 
+Clônez le dépôt avec la commande suivante :
 
 ```bach
-git clone
+git clone https://github.com/zellio22/psutil_mqtt
 ```
-
-'''bash 
+##Instalation des dependances
+Installez les dépendances requises avec la commande suivante :
+```bach
     pip install -r requirement.txt
-'''
-
-execution 
-'''bash 
+```
+Exécutez le script avec la commande suivante :
+## Execution 
+```bash 
 python3 ./main.py
+```
