@@ -16,16 +16,18 @@ git clone https://github.com/zellio22/psutil_mqtt
 ##Instalation des dependances
 Installez les dépendances requises avec la commande suivante :
 ```bach
-    pip install -r requirement.txt
+pip install json
+pip install psutil 
+pip install paho-mqtt
 ```
 
 ## Configuration 
 
 ```python
-    broker_address = '192.168.1.14'  # Adresse IP ou nom d'hôte du broker MQTT
-    port_mqtt = 8500  # Port du broker MQTT
-    topic = 'sys_info'  # Sujet MQTT pour l'envoi des données
-    timing=10 #Temps entre 2 publication sur le Brocker
+broker_address = '192.168.1.14'  # Adresse IP ou nom d'hôte du broker MQTT
+port_mqtt = 8500  # Port du broker MQTT
+topic = 'sys_info'  # Sujet MQTT pour l'envoi des données
+timing=10 #Temps entre 2 publication sur le Brocker
 ```
 
 
