@@ -38,8 +38,8 @@ pip install -r requirement.txt
 ## Configuration 
 
 ```python
-broker_address = '192.168.1.14'  # Adresse IP ou nom d'hôte du broker MQTT
-port_mqtt = 8500  # Port du broker MQTT
+broker_address = '127.0.0.1'  # Adresse IP ou nom d'hôte du broker MQTT 127.0.0.1 si le brocker est sur la meme machine 
+port_mqtt = 1883  # Port du broker MQTT 1883 port MQTT par defaut 
 topic = 'sys_info'  # Sujet MQTT pour l'envoi des données
 timing=10 #Temps entre 2 publication sur le Brocker
 ```
