@@ -15,17 +15,21 @@ git clone https://github.com/zellio22/psutil_mqtt
 ```
 ## Instalation des dependances
 
-Installez les dépendances requises avec la commande suivante :
+Installez les dépendances requises avec les commande suivante :
+
 ```bach
-pip install json
+pip install pypi-json
 ```
 ```bach
-pip install psutil 
+pip install psutil
 ```
 ```bach
 pip install paho-mqtt
 ```
-
+Ou 
+```bash
+pip install -r requirement.txt
+```
 ## Configuration 
 
 ```python
