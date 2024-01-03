@@ -9,6 +9,7 @@ import psutil
 broker_address = '192.168.1.14'  # Adresse IP ou nom d'hôte du broker MQTT
 port_mqtt = 8500  # Port du broker MQTT
 topic = 'sys_info'  # Sujet MQTT pour l'envoi des données
+timing=10 #Temps entre 2 publication sur le Brocker
 
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -47,7 +48,7 @@ try:
             "ram_utilization" : psutil.virtual_memory().used / (1024 ** 2)
         }
         client.publish(topic, json.dumps(system_info, indent=4))
-        time.sleep(2)
+        time.sleep(timing)
 except KeyboardInterrupt:
     print("Ctrl+c")
 

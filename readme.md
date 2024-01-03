@@ -18,8 +18,20 @@ Installez les dépendances requises avec la commande suivante :
 ```bach
     pip install -r requirement.txt
 ```
-Exécutez le script avec la commande suivante :
+
+## Configuration 
+
+```python
+    broker_address = '192.168.1.14'  # Adresse IP ou nom d'hôte du broker MQTT
+    port_mqtt = 8500  # Port du broker MQTT
+    topic = 'sys_info'  # Sujet MQTT pour l'envoi des données
+    timing=10 #Temps entre 2 publication sur le Brocker
+```
+
+
 ## Execution 
+
+Exécutez le script avec la commande suivante :
 ```bash 
 python3 ./main.py
 ```
