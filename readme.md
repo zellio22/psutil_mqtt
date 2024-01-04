@@ -60,9 +60,9 @@ listener 1883
 allow_anonymous true
 ```
 
-Start du brocker MQTT sur le port 8500
+Start du brocker MQTT sur le port 1883
 ```bash
-docker run -d -p 8500:1883 --name mosquitto -v /home/user/psutil_mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
+docker run -d -p 1883:1883 --name mosquitto -v /home/user/psutil_mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
 ```
 
 ## Screen 
