@@ -51,5 +51,19 @@ Exécutez le script avec la commande suivante :
 ```bash 
 python3 ./main.py
 ```
+## Docker mosquitto
+mosquitto.conf
+```
+# /mosquitto/config/mosquitto.conf
+
+listener 1883
+allow_anonymous true
+```
+
+Start du brocker MQTT sur le port 8500
+```bash
+docker run -d -p 8500:1883 --name mosquitto -v /home/zellio/psutil_mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
+```
+
 ## Screen 
 ![Mqtt](./images/mqtt.png)
