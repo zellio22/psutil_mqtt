@@ -44,9 +44,9 @@ try:
             "cpu_freq_min":psutil.cpu_freq()[1],
             "cpu_freq_max":psutil.cpu_freq()[2],
             "cpu_usage":psutil.cpu_percent(interval=1, percpu=False),
-            "cpu_temp":psutil.sensors_temperatures()["cpu_thermal"][0][1],
+            #"cpu_temp":psutil.sensors_temperatures()["cpu_thermal"][0][1],
             "ram_utilization" : psutil.virtual_memory().used / (1024 ** 2),
-            psutil.disk_usage("/")[3]
+            "disk_usage":psutil.disk_usage("/")[3]
         }
         client.publish(topic, json.dumps(system_info, indent=4))
         time.sleep(timing)

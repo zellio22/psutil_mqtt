@@ -1,0 +1,26 @@
+{
+    "config":{
+        "broker_address" :"192.168.1.14",
+        "port_mqtt":1883,
+        "topic":"sys_info",
+        "timing":10
+    },
+    
+    "systeme_info":{
+        "cpu_freq_current":true,
+        "cpu_freq_min":true,
+        "cpu_freq_max":true,
+        "cpu_usage":true,
+        "cpu_temperature":true,
+        "ram_usage":true,
+        "disk_usage":true,
+        "up_time":true
+    },
+
+    "service":{
+        "service1":"apache2",
+        "service2":"sshd"
+    }
+
+
+}
