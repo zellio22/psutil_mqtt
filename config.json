@@ -1,7 +1,7 @@
 {
     "config":{
-        "broker_address" :"192.168.1.14",
-        "port_mqtt":8500,
+        "broker_address" :"127.0.0.1",
+        "port_mqtt":1883,
         "topic":"sys_info",
         "timing":10
     },
