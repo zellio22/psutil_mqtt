@@ -43,7 +43,7 @@ pip install -r requirement.txt
 ```
 ## Configuration 
 
-Toute la configuration doit etre réalisée dans le Fichier [config.json][./config.json]
+Toute la configuration doit etre réalisée dans le Fichier [config.json](./config.json)
 ```json
 {
     "config":{
