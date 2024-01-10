@@ -159,7 +159,7 @@ def loop():
     
     try:
         for key, value in service_status_json.items():
-            results_dict[key]=get_service_status(value)
+            results_dict[value]=get_service_status(value)
         # Affichage du dictionnaire des résultats
     except Exception as e:
         
