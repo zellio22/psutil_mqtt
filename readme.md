@@ -44,7 +44,7 @@ pip install -r requirement.txt
 ## Configuration 
 
 Toute la configuration doit etre réalisé dans le Fichier config.json
-
+```
 {
     "config":{
         "broker_address" :"127.0.0.1",  # Adresse du Broker MQTT 
@@ -71,7 +71,7 @@ Toute la configuration doit etre réalisé dans le Fichier config.json
         "service2":"ssh"                # Ou ajouter si l'ont souhaite suivre plusieurs service
     }
 
-}
+}```
 
 
 
