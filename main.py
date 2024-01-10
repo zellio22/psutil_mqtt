@@ -165,7 +165,7 @@ def loop():
         
         print(e)
     client.publish(topic, json.dumps(results_dict, indent=4))
-    print(results_dict)
+    #print(results_dict)
 
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -202,40 +202,3 @@ if __name__=="__main__":
     except KeyboardInterrupt:
         print("Ctrl+c")
 
-
-
-#def on_connect(client, userdata, flags, rc):
-#    if rc == 0:
-#        print('Connecté au broker MQTT')
-#    else:
-#        print('Échec de la connexion au broker MQTT')
-#
-## Fonction de callback lors de la publication MQTT
-#def on_publish(client, userdata, mid):
-#    print('Données publiées avec succès')
-#
-## Configuration du client MQTT
-#client = mqtt.Client()
-#client.on_connect = on_connect
-#client.on_publish = on_publish
-#
-## Connexion au broker MQTT
-#client.connect(broker_address, port=port_mqtt)
-#
-#
-
-#
-#
-#try:
-#    while True:
-#    
-
-#        client.publish(topic, json.dumps(system_info, indent=4))
-#        time.sleep(timing)
-#except KeyboardInterrupt:
-#    print("Ctrl+c")
-#
-#    
-#    
-#    
-#
