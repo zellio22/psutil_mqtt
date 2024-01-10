@@ -1,7 +1,7 @@
 # Sys_info
 Le script suivant permet de publier sur votre broker MQTT les informations suivantes :
     | Clef | type |Commentaire|
-    |-----------|-----------|-----------|
+    |--------------------|-----------|-----------|
     |"cpu_freq_current": |Float|Frequence actuelle du CPU|
     |"cpu_freq_min": |Float|Frequence mini du CPU|
     |"cpu_freq_max": |Float|Frequence Maxi du CPU|
