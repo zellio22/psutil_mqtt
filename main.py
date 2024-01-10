@@ -6,7 +6,7 @@ import psutil
 from datetime import datetime
 import subprocess
 
-data=[]
+
 def import_json():
     global data
     try:
@@ -18,13 +18,10 @@ def import_json():
         #print(f"Une erreur inattendue s'est produite : {e}")  
         None
     
-import_json()
 
 
-broker_address = data["config"]["broker_address"] # Adresse du Broker 
-port_mqtt = data["config"]["port_mqtt"] # Port du Broker 
-topic = data["config"]["topic"]  # Sujet MQTT pour l'envoi des données
-timing=data["config"]["timing"] #Temps entre 2 publication sur le Brocker
+
+
 
 def cpu_freq_current():
     try:
@@ -118,18 +115,7 @@ def get_service_status(service_name):
         #print(f"Erreur lors de l'exécution de la commande : {e}")
         return None
 
-# Le JSON fourni
-try:
-    system_info_json = data["system_info"]
-except:
-    #print("Pas de configuration des Info System")
-    None
 
-try:
-    service_status_json = data["service"]
-except:
-    #print("Pas de configuaration des Services ")
-    None
 # Dictionnaire de fonctions
 function_mapping = {
     "cpu_freq_current": cpu_freq_current,
@@ -145,22 +131,76 @@ function_mapping = {
     
 }
 
-# Dictionnaire pour stocker les résultats
-results_dict = {}
+def loop():
+        # Le JSON fourni
+    try:
+        system_info_json = data["system_info"]
+    except:
+        #print("Pas de configuration des Info System")
+        None
+    
+    # Dictionnaire pour stocker les résultats
+    results_dict = {}
+    
+    # Exécution des fonctions en fonction des valeurs du JSON et stockage des résultats
+    for key, value in system_info_json.items():
+        if value and key in function_mapping:
+            result = function_mapping[key]()
+            results_dict[key] = result
+    
+    # Si l'option service est definit met l'etat des service a None
+    try:
+        service_status_json = data["service"]
+        for key, value in service_status_json.items():
+            results_dict[value]=None
+    except:
+        #print("Pas de configuaration des Services ")
+        None
+    
+    try:
+        for key, value in service_status_json.items():
+            results_dict[key]=get_service_status(value)
+        # Affichage du dictionnaire des résultats
+    except Exception as e:
+        
+        print(e)
+    client.publish(topic, json.dumps(results_dict, indent=4))
+    print(results_dict)
 
-# Exécution des fonctions en fonction des valeurs du JSON et stockage des résultats
-for key, value in system_info_json.items():
-    if value and key in function_mapping:
-        result = function_mapping[key]()
-        results_dict[key] = result
+def on_connect(client, userdata, flags, rc):
+    if rc == 0:
+        print('Connecté au broker MQTT')
+    else:
+        print('Échec de la connexion au broker MQTT')
 
-try:
-    for key, value in service_status_json.items():
-        results_dict[key]=get_service_status(value)
-    # Affichage du dictionnaire des résultats
-except:
-    None
-print(results_dict)
+# Fonction de callback lors de la publication MQTT
+def on_publish(client, userdata, mid):
+    print('Données publiées avec succès')
+
+if __name__=="__main__":
+    
+    import_json()
+    #set des variables interne
+    
+    broker_address = data["config"]["broker_address"] # Adresse du Broker 
+    port_mqtt = data["config"]["port_mqtt"] # Port du Broker 
+    topic = data["config"]["topic"]  # Sujet MQTT pour l'envoi des données
+    timing=data["config"]["timing"] #Temps entre 2 publication sur le Brocker   
+    
+    # Configuration du client MQTT
+    client = mqtt.Client()
+    client.on_connect = on_connect
+    client.on_publish = on_publish
+
+    # Connexion au broker MQTT
+    client.connect(broker_address, port=port_mqtt)
+    
+    try:
+        while True:
+            loop()
+            time.sleep(timing)
+    except KeyboardInterrupt:
+        print("Ctrl+c")
 
 
 

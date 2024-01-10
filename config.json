@@ -1,15 +1,15 @@
 {
     "config":{
         "broker_address" :"192.168.1.14",
-        "port_mqtt":1883,
+        "port_mqtt":8500,
         "topic":"sys_info",
-        "timing":10
+        "timing":5
     },
     
     "system_info":{
         "cpu_freq_current":true,
-        "cpu_freq_min":true,
-        "cpu_freq_max":true,
+        "cpu_freq_min":false,
+        "cpu_freq_max":false,
         "cpu_usage":true,
         "cpu_temperature":true,
         "ram_usage":true,
