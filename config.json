@@ -3,7 +3,7 @@
         "broker_address" :"192.168.1.14",
         "port_mqtt":8500,
         "topic":"sys_info",
-        "timing":5
+        "timing":10
     },
     
     "system_info":{

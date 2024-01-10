@@ -1,11 +1,17 @@
 # Sys_info
 Le script suivant permet de publier sur votre broker MQTT les informations suivantes :
-    "cpu_freq_current": 
-    "cpu_freq_min": 
-    "cpu_freq_max": 
-    "cpu_usage": 
-    "cpu_temp": 
-    "ram_utilization": 
+    | Clef | type |Commentaire|
+    |-----------|-----------|-----------|
+    |"cpu_freq_current": |Float|Frequence actuelle du CPU|
+    |"cpu_freq_min": |Float|Frequence mini du CPU|
+    |"cpu_freq_max": |Float|Frequence Maxi du CPU|
+    |"cpu_usage": |Float |% d'utilisation du CPU|
+    |"cpu_temp": |Float|en °C|
+    |"ram_usage": |Float|en Mb|
+    |"disk_usage":|Float|en %|
+    |"time_now":|Str|Heur actuelle|
+    |"boot_time":|Str |Heur du Boot|
+    |"up_time":|Str|temps de fonctionnement|
 
 ## Instalation 
 Clônez le dépôt avec la commande suivante :
@@ -37,12 +43,36 @@ pip install -r requirement.txt
 ```
 ## Configuration 
 
-```python
-broker_address = '127.0.0.1'  # Adresse IP ou nom d'hôte du broker MQTT 127.0.0.1 si le brocker est sur la meme machine 
-port_mqtt = 1883  # Port du broker MQTT 1883 port MQTT par defaut 
-topic = 'sys_info'  # Sujet MQTT pour l'envoi des données
-timing=10 #Temps entre 2 publication sur le Brocker
-```
+Toute la configuration doit etre réalisé dans le Fichier config.json
+
+{
+    "config":{
+        "broker_address" :"127.0.0.1",  # Adresse du Broker MQTT 
+        "port_mqtt":1883,               # Port du Broker
+        "topic":"sys_info",             # Topic des messages 
+        "timing":10                     # Temps entre 2 publication 
+    },
+    
+    "system_info":{
+        "cpu_freq_current":true,        #true = publie la valeur
+        "cpu_freq_min":false,           #false = ne publie pas la valeur
+        "cpu_freq_max":false,
+        "cpu_usage":true,
+        "cpu_temperature":true,
+        "ram_usage":true,
+        "disk_usage":true,
+        "time_now":true,
+        "boot_time":true,
+        "up_time":true
+    },
+
+    "service":{                         # Permet de suivre l'etat d'un service 
+        "service1":"apache2",           # ces ligne peuvent être supprimer 
+        "service2":"ssh"                # Ou ajouter si l'ont souhaite suivre plusieurs service
+    }
+
+}
+
 
 
 ## Execution 
