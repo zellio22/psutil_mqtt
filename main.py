@@ -15,7 +15,8 @@ def import_json():
 
         
     except Exception as e:
-        print(f"Une erreur inattendue s'est produite : {e}")  
+        #print(f"Une erreur inattendue s'est produite : {e}")  
+        None
     
 import_json()
 
@@ -106,7 +107,7 @@ def get_service_status(service_name):
     try:
         # Exécute la commande systemctl pour obtenir l'état du service
         result = subprocess.run(['systemctl', 'is-active', service_name], capture_output=True, text=True, check=True)
-        print(result)
+
         # Récupère la sortie de la commande
         output = result.stdout.strip()
 
@@ -114,19 +115,21 @@ def get_service_status(service_name):
         return output
     except subprocess.CalledProcessError as e:
         # En cas d'erreur, imprime le message d'erreur
-        print(f"Erreur lors de l'exécution de la commande : {e}")
+        #print(f"Erreur lors de l'exécution de la commande : {e}")
         return None
 
 # Le JSON fourni
 try:
     system_info_json = data["system_info"]
 except:
-    print("Pas de configuration des Info System")
+    #print("Pas de configuration des Info System")
+    None
 
 try:
     service_status_json = data["service"]
 except:
-    print("Pas de configuaration des Services ")
+    #print("Pas de configuaration des Services ")
+    None
 # Dictionnaire de fonctions
 function_mapping = {
     "cpu_freq_current": cpu_freq_current,
