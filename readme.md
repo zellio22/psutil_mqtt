@@ -1,17 +1,17 @@
 # Sys_info
 Le script suivant permet de publier sur votre broker MQTT les informations suivantes :
-    | Clef | type |Commentaire|
-    |--------------------|-----------|-----------|
-    |"cpu_freq_current": |Float|Frequence actuelle du CPU|
-    |"cpu_freq_min": |Float|Frequence mini du CPU|
-    |"cpu_freq_max": |Float|Frequence Maxi du CPU|
-    |"cpu_usage": |Float |% d'utilisation du CPU|
-    |"cpu_temp": |Float|en °C|
-    |"ram_usage": |Float|en Mb|
-    |"disk_usage":|Float|en %|
-    |"time_now":|Str|Heur actuelle|
-    |"boot_time":|Str |Heur du Boot|
-    |"up_time":|Str|temps de fonctionnement|
+| Clef | type |Commentaire|
+|-----------|-----------|-----------|
+|"cpu_freq_current": |Float|Frequence actuelle du CPU|
+|"cpu_freq_min": |Float|Frequence mini du CPU|
+|"cpu_freq_max": |Float|Frequence Maxi du CPU|
+|"cpu_usage": |Float |% d'utilisation du CPU|
+|"cpu_temp": |Float|en °C|
+|"ram_usage": |Float|en Mb|
+|"disk_usage":|Float|en %|
+|"time_now":|Str|Heur actuelle|
+|"boot_time":|Str |Heur du Boot|
+|"up_time":|Str |temps de fonctionnement|
 
 ## Instalation 
 Clônez le dépôt avec la commande suivante :
