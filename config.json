@@ -6,7 +6,7 @@
         "timing":10
     },
     
-    "systeme_info":{
+    "system_info":{
         "cpu_freq_current":true,
         "cpu_freq_min":true,
         "cpu_freq_max":true,
@@ -14,12 +14,14 @@
         "cpu_temperature":true,
         "ram_usage":true,
         "disk_usage":true,
+        "time_now":true,
+        "boot_time":true,
         "up_time":true
     },
 
     "service":{
         "service1":"apache2",
-        "service2":"sshd"
+        "service2":"ssh"
     }
 
 

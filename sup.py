@@ -4,7 +4,7 @@ def get_service_status(service_name):
     try:
         # Exécute la commande systemctl pour obtenir l'état du service
         result = subprocess.run(['systemctl', 'is-active', service_name], capture_output=True, text=True, check=True)
-
+        print(result)
         # Récupère la sortie de la commande
         output = result.stdout.strip()
 
