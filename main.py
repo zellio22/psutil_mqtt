@@ -19,10 +19,6 @@ def import_json():
         None
     
 
-
-
-
-
 def cpu_freq_current():
     try:
         result = psutil.cpu_freq()[0]
@@ -185,10 +181,16 @@ if __name__=="__main__":
     broker_address = data["config"]["broker_address"] # Adresse du Broker 
     port_mqtt = data["config"]["port_mqtt"] # Port du Broker 
     topic = data["config"]["topic"]  # Sujet MQTT pour l'envoi des données
-    timing=data["config"]["timing"] #Temps entre 2 publication sur le Brocker   
-    
+    timing=data["config"]["timing"] #Temps entre 2 publication sur le Brocker  
+
+    username=data["config"]["username"] # nom d'utilisateur du Brocker
+    password=data["config"]["password"] # mot de passe du Brocker
+
     # Configuration du client MQTT
+    if username=="" or password=="":
+        print("User ou Mdp non definit")
     client = mqtt.Client()
+    client.username_pw_set(username,password)
     client.on_connect = on_connect
     client.on_publish = on_publish
 

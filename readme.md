@@ -50,7 +50,9 @@ Toute la configuration doit être réalisée dans le Fichier [config.json](./con
         "broker_address" :"127.0.0.1",  # Adresse du Broker MQTT 
         "port_mqtt":1883,               # Port du Broker
         "topic":"sys_info",             # Topic des messages 
-        "timing":10                     # Temps entre 2 publication 
+        "timing":10,                    # Temps entre 2 publication 
+        "username":"",                  # Votre nom d'utilisateur du Brocker
+        "password":""                   # Votre Mot de passe du Brocker
     },
     
     "system_info":{

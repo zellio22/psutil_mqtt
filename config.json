@@ -3,7 +3,9 @@
         "broker_address" :"127.0.0.1",
         "port_mqtt":1883,
         "topic":"sys_info",
-        "timing":10
+        "timing":10,
+        "username":"",
+        "password":""
     },
     
     "system_info":{
